@@ -1,11 +1,16 @@
 #git pull
 # smtplib module send mail
-
+#add another line
 import smtplib
 
 TO = ''
 SUBJECT = 'TEST MAIL'
 TEXT = 'Here is a message from python.'
+if 
+else:
+    pass
+
+
 
 # Gmail Sign In
 gmail_sender = '
