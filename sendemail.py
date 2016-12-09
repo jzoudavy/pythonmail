@@ -1,19 +1,14 @@
-#git pull
-# smtplib module send mail
-#add another line
 import smtplib
+import base64
+from passlib.hash import pbkdf2_sha256
 
 TO = ''
 SUBJECT = 'TEST MAIL'
 TEXT = 'Here is a message from python.'
-if 
-else:
-    pass
-
 
 
 # Gmail Sign In
-gmail_sender = '
+gmail_sender = ''
 gmail_passwd = ''
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
