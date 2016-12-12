@@ -26,7 +26,13 @@ f.decrypt(stored_pwd)
 # Gmail Sign In
 gmail_sender = str(f.decrypt(stored_login))
 gmail_passwd = str(f.decrypt(stored_pwd))
+
+#need to strip out the quotes and b at the beginning 
+gmail_sender = gmail_sender[2:-1]
+gmail_passwd = gmail_passwd[2:-1]
+
 ############################################################ 
+
 
 
 print("gmail sender is "+gmail_sender)
