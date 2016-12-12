@@ -1,20 +1,32 @@
 import smtplib
-import base64
-from passlib.hash import pbkdf2_sha256
+from cryptography.fernet import Fernet
 
-TO = 'jzoudavy@gmail.com'
 SUBJECT = 'TEST MAIL'
 TEXT = 'Here is a message from python.'
 
-#read the hidden file for the hashed password
+#############################################################
+# read login and password
 
-#from passlib.hash import pbkdf2_sha256
-#pbkdf2_sha256.verify("password", hash)
-#hash = pbkdf2_sha256.encrypt("password", rounds=200000, salt_size=16)
+file= open("/home/ubuntu/test_key",'rb')
+stored_key=file.readline()
+file.close()
+
+file= open("/home/ubuntu/test_login",'rb')
+stored_login=file.readline()
+file.close()
+
+file= open("/home/ubuntu/test_pwd",'rb')
+stored_pwd=file.readline()
+file.close()
+
+f = Fernet(stored_key)
+f.decrypt(stored_login)
+f.decrypt(stored_pwd)
 
 # Gmail Sign In
-gmail_sender = TO
-gmail_passwd = ''
+gmail_sender = str(f.decrypt(stored_login))
+gmail_passwd = str(f.decrypt(stored_pwd))
+############################################################ 
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
