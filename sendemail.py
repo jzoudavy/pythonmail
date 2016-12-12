@@ -29,10 +29,10 @@ gmail_passwd = str(f.decrypt(stored_pwd))
 ############################################################ 
 
 
-print("gmail sender is " gmail_sender)
+print("gmail sender is "+gmail_sender)
 
 
-print("gmail password is " gmail_pwd)
+print("gmail password is "+gmail_pwd)
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
