@@ -1,9 +1,6 @@
 import smtplib
 from cryptography.fernet import Fernet
 
-SUBJECT = 'TEST MAIL'
-TEXT = 'Here is a message from python.'
-
 #############################################################
 # read login and password
 
@@ -27,18 +24,23 @@ f.decrypt(stored_pwd)
 gmail_sender = str(f.decrypt(stored_login))
 gmail_passwd = str(f.decrypt(stored_pwd))
 
-#need to strip out the quotes and b at the beginning 
+#need to strip out the quotes and b at the beginning
 gmail_sender = gmail_sender[2:-1]
 gmail_passwd = gmail_passwd[2:-1]
 
-############################################################ 
+############################################################
+#print("gmail sender is "+gmail_sender)
+#print("gmail password is "+gmail_passwd)
+
+############################################
+# compose message
+TO = 'jzoudavy@gmail.com'
+SUBJECT = 'TEST MAIL'
+TEXT = 'Here is a message from python.'
 
 
+##########################################
 
-print("gmail sender is "+gmail_sender)
-
-
-print("gmail password is "+gmail_passwd)
 
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
@@ -52,8 +54,8 @@ BODY = '\r\n'.join(['To: %s' % TO,
 
 try:
     server.sendmail(gmail_sender, [TO], BODY)
-    print ('email sent')
+    print('email sent')
 except:
-    print ('error sending mail')
+    print('error sending mail')
 
 server.quit()
