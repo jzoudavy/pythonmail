@@ -1,3 +1,4 @@
+#add some more lines for push test
 import smtplib
 from cryptography.fernet import Fernet
 
@@ -34,7 +35,7 @@ gmail_passwd = gmail_passwd[2:-1]
 
 ############################################
 # compose message
-TO = 'jzoudavy@gmail.com'
+TO = 'cerfvolant8@gmail.com'
 SUBJECT = 'TEST MAIL'
 TEXT = 'Here is a message from python.'
 
